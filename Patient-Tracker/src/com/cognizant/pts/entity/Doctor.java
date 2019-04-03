@@ -2,11 +2,14 @@ package com.cognizant.pts.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;//
 //import javax.persistence.NamedQueries;
 //import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "Doctor")
@@ -17,6 +20,8 @@ import javax.validation.constraints.Size;
 public class Doctor {
 
 	@Id
+	@GenericGenerator(name="DOCTORSEQ",strategy="com.cognizant.pts.dao.DoctorIdGenerator")
+	@GeneratedValue(generator="DOCTORSEQ")
 	@Column(name = "doctor_id")
 	private String doctorId;
 
@@ -37,10 +42,10 @@ public class Doctor {
 	private String dob;
 
 	@Column(name = "contact_number")
-	private long contactNumber;
+	private String contactNumber;
 
 	@Column(name = "alternate_contact_number")
-	private long alternateContactNumber;
+	private String alternateContactNumber;
 
 	@Column(name = "email_id")
 	private String emailId;
@@ -132,19 +137,19 @@ public class Doctor {
 		this.dob = dob;
 	}
 
-	public long getContactNumber() {
+	public String getContactNumber() {
 		return contactNumber;
 	}
 
-	public void setContactNumber(long contactNumber) {
+	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 
-	public long getAlternateContactNumber() {
+	public String getAlternateContactNumber() {
 		return alternateContactNumber;
 	}
 
-	public void setAlternateContactNumber(long alternateContactNumber) {
+	public void setAlternateContactNumber(String alternateContactNumber) {
 		this.alternateContactNumber = alternateContactNumber;
 	}
 

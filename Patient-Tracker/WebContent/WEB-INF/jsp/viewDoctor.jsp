@@ -14,10 +14,13 @@
 <th>Doctor Id</th>
 <th>First Name</th>
 <th>Last Name</th>
+<th>Contact No.</th>
+<th>EmailId</th>
+<!-- 
 <th>Age</th>
 <th>Gender</th>
 <th>DoB</th>
-<th>Contact No.</th>
+
 <th>Alt. Contact No.</th>
 <th>EmailId</th>
 <th>Address</th>
@@ -27,14 +30,22 @@
 <th>Degree</th>
 <th>Speciality</th>
 <th>Work hours</th>
-<th>Clinic</th>
+<th>Clinic</th> -->
 
 </tr>
 <c:forEach items="${doctorList}" var="doctor">
 <tr>
+<td> 
+<a href="viewonedoctor.htm?doctorId=${doctor.doctorId}">
+<c:out value="${doctor.doctorId}"></c:out></a>
+</td>
 <td><c:out value="${doctor.doctorId}"/></td>
 <td><c:out value="${doctor.firstName}"/></td>
 <td><c:out value="${doctor.lastName}"/></td>
+<td><c:out value="${doctor.contactNumber}"/></td>
+<td><c:out value="${doctor.emailId}"/></td>
+<%-- 
+
 <td><c:out value="${doctor.age}"/></td>
 <td><c:out value="${doctor.gender}"/></td>
 <td><c:out value="${doctor.dob}"/></td>
@@ -49,7 +60,7 @@
 <td><c:out value="${doctor.degree}"/></td>
 <td><c:out value="${doctor.speciality}"/></td>
 <td><c:out value="${doctor.workHours}"/></td>
-<td><c:out value="${doctor.hospitalClinicName}"/></td>
+<td><c:out value="${doctor.hospitalClinicName}"/></td> --%>
 </tr>
 </c:forEach>
 
